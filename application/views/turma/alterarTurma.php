@@ -8,49 +8,50 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Turma</a></li>
-            <li class="active">Cadastro</li>
+            <li class="active">Altwração</li>
         </ol>
     </section>
     <hr />
     <!-- Main content -->
     <section class="content container-fluid">
         <div class="col-xs-12">
-            <form role="form" action="<?= base_url("index.php/turma/inserir"); ?>" method="POST" enctype="multipart/form-data" id="frmCadastro">
+            <form role="form" action="<?= base_url("index.php/turma/alterar"); ?>" method="POST" enctype="multipart/form-data" id="frmCadastro">
+                <input type="hidden" name="txtCod" value="<?= $dadosTurma->codTurma;?>">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
-                                <input type="text" class="form-control" required id="txtNome" name="txtNome" placeholder="Nome da Turma">
+                                <input type="text" value="<?= $dadosTurma->descricao;?>" class="form-control" required id="txtNome" name="txtNome" placeholder="Nome da Turma">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtNumVagas">Número de Vagas</label>
-                                <input type="text" class="form-control" required id="txtNumVagas" name="txtNumVagas" placeholder="Vagas Disponíveis">
+                                <input type="text" value="<?= $dadosTurma->numVagas;?>" class="form-control" required id="txtNumVagas" name="txtNumVagas" placeholder="Vagas Disponíveis">
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtDiaLetivo">Dia de Aula</label>
-                                <input type="text" class="form-control" required id="txtDiaLetivo" name="txtDiaLetivo" placeholder="Dias de Aulas">
+                                <input type="text" value="<?= $dadosTurma->diaLetivo;?>" class="form-control" required id="txtDiaLetivo" name="txtDiaLetivo" placeholder="Dias de Aulas">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtInicio">Início das aulas</label>
-                                <input type="text" class="form-control" required id="txtInicio" name="txtInicio" placeholder="Início das Aulas">
+                                <input type="text" value="<?= $dadosTurma->dataInicio;?>" class="form-control" required id="txtInicio" name="txtInicio" placeholder="Início das Aulas">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtEmail">Curso</label>
                                 <select id="txtCurso" name="txtCurso" class="form-control">
-                                    <option value="0" disabled hidden selected>Selecione o Curso</option>
                                     <?php foreach ($cursos->result() as $item) { ?>
-                                        <option value="<?= $item->codCurso; ?>"><?= $item->nome; ?></option>
+                                        <?php $sel = ($item->codCurso == $dadosTurma->codCurso) ? "selected" : "0";?>
+                                        <option value="<?= $item->codCurso; ?>" <?= $sel;?>><?= $item->nome; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -62,7 +63,8 @@
                                 <select id="txtProfessor" name="txtProfessor" class="form-control">
                                     <option value="0" disabled hidden selected>Selecione o Professor</option>
                                     <?php foreach ($professores->result() as $item) { ?>
-                                        <option value="<?= $item->codProfessor; ?>"><?= $item->nome; ?></option>
+                                        <?php $sel = ($item->codProfessor == $dadosTurma->codProfessor) ? "selected" : "0";?>
+                                        <option value="<?= $item->codProfessor; ?>" <?= $sel;?>><?= $item->nome; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -71,8 +73,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtEscola">Escola</label>
-                                <select id="txtEscola" name="txtEscola" class="form-control">
-                                    <option value="0" disabled hidden selected>Selecione a Escola</option>
+                                <select id="txtEscola" name="txtEscola" class="form-control" disabled>
                                     <?php foreach ($instituicoes->result() as $item) { ?>
                                         <option value="<?= $item->codInstituicao; ?>"><?= $item->descricao; ?></option>
                                     <?php } ?>
@@ -83,7 +84,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <div class="form-group">
                                 <label for="txtHorario">Horários</label>
-                                <input type="text" class="form-control" required id="txtHorario" name="txtHorario" placeholder="Horário da Turma">
+                                <input type="text" value="<?= $dadosTurma->horario;?>" class="form-control" required id="txtHorario" name="txtHorario" placeholder="Horário da Turma">
                             </div>
                         </div>
 

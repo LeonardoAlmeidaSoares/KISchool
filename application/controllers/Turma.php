@@ -94,6 +94,52 @@ class Turma extends CI_Controller {
         $this->db->where("codCurso", $cod)->delete("curso");
     }
 
+    public function edit($codTurma) {
+        
+        $parametrosBarra = array(
+            "listaNotificacoes" => $this->notif->getNotificacoes()
+        );
+        
+        $this->load->Model("Model_professor", "prof");
+        $this->load->Model("Model_cursos", "curso");
+        $this->load->Model("Model_instituicao", "inst");
+
+        $parametros = array(
+            "professores" => $this->prof->getListaProfessoresAtivos(),
+            "cursos" => $this->curso->getListaCursos(),
+            "instituicoes" => $this->inst->getInstituicoes(),
+            "dadosTurma" => $this->turma->getTurma($codTurma)->row(0)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view("inc/barra", $parametrosBarra);
+        $this->load->view("inc/menu");
+        $this->load->view('turma/alterarTurma', $parametros);
+        $this->load->view('inc/footer');
+    }
+
+    public function alterar(){
+
+        $codTurma = intval(trim(filter_input(INPUT_POST, "txtCod")));
+
+        $parametros = array(
+            "descricao" => trim(filter_input(INPUT_POST, "txtNome")),
+            "codCurso" => trim(filter_input(INPUT_POST, "txtCurso")),
+            "codProfessor" => intval(trim(filter_input(INPUT_POST, "txtProfessor"))),
+            "dataInicio" => trim(filter_input(INPUT_POST, "txtInicio")),
+            "horario" => trim(filter_input(INPUT_POST, "txtHorario")),
+            "diaLetivo" => trim(filter_input(INPUT_POST, "txtDiaLetivo")),
+            "numVagas" => intval(trim(filter_input(INPUT_POST, "txtNumVagas")))
+        );
+
+        $this->db->where("codTurma", $codTurma)->update("turma", $parametros);
+        
+        $_SESSION["msg_ok"] = "Turma cadastrada com sucesso";
+
+        redirect(base_url("index.php/turma/"));
+
+    }
+
     public function updateStatus() {
 
         $cod = intval(trim(filter_input(INPUT_POST, "cod")));

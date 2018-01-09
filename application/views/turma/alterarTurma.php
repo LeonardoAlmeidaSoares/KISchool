@@ -8,7 +8,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Turma</a></li>
-            <li class="active">Altwração</li>
+            <li class="active"><?= $dadosTurma->descricao;?></li>
         </ol>
     </section>
     <hr />

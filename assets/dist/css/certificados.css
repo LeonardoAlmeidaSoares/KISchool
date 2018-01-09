@@ -1,0 +1,157 @@
+.certificado{
+    background-image: url('../../../assets/images/Certificado.jpg');
+    background-size: 100% 100%;
+    min-height: 100%;
+    position: relative;
+}
+.conteudo{
+    position: absolute;
+    top: 28%;
+    left: 8%;
+}
+.textopadrao{
+    font-family: open sans-serif;
+    font-size: 22px;
+    color: darkslategrey;
+}
+.linha1{
+    position: relative;
+    margin-top: 4%;
+}
+.linha2{
+    margin-top: -3%;
+}
+.linha3{
+    margin-top: -2%;
+}
+.nomeCurso{
+    position: relative;
+    margin-top: -1%;
+    font-size: 39px;
+    color: rgb(232, 176, 5);
+    text-transform: uppercase;
+}
+.nomedoInfeliz{
+    color: #38B0DE;
+    position: relative;
+    margin-top: 0%;
+    font-size: 55px;
+    font-family: "Berkshire Swash";
+}
+.assinaturas{
+    margin-top: 7%;
+}
+.assinaturas:first-child {
+    margin-left: 2%;
+}
+.linhaAssinatura{
+    width: 45%;
+    float: left;
+    margin-right: 3%;
+    text-align: center;
+}
+.linhaCNPJ  {
+    position: relative;
+    width: 90%;
+    top: 56px;
+    text-align: center;
+}
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    
+    .lineG{
+        font-size: 0.5%;
+    }
+    
+    .certificado{
+        background-image: url('../../../assets/images/Certificado.jpg');
+        background-size: 100% 100%;
+        padding: 3px 0px 3px 0px;
+        min-height: 99%;
+        position: relative;
+    }
+    
+}
+.form-control{
+    display: block;
+    width: 98%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d2d6de;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    border-radius: 0;
+    box-shadow: none;
+}
+.div-form{
+    display: grid;
+    margin: 10px;
+}
+.div-form label{
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-left: 3px;
+}
+#btnPrint{
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid transparent;
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    margin-right: 17px;
+    color: #fff;
+    float: right!important;
+    background-image: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+#btnVoltar{
+    float: right;
+    position: absolute;
+    bottom: 0%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 98%;
+    right: 7px;
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid transparent;
+    background-color: #d48411;
+    border-color: #a26809;
+    color: #fff;
+    float: right!important;
+    background-image: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}

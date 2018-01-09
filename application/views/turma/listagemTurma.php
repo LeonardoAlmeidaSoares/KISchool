@@ -59,8 +59,11 @@
                                     <a href="<?= base_url("index.php/turma/alterarSala/$item->codTurma");?>" style="text-decoration: none;color: #000;"  title="Alterar Sala"> 
                                         <span class="glyphicon glyphicon-home spnAlterarSala" cod="<?= $item->codTurma;?>"></span>
                                     </a>
-                                    <a href="<?= base_url("index.php/avaliacao/listagem/$item->codTurma");?>" style="text-decoration: none; color: #000;" title="MArcar Avaliação">
+                                    <a href="<?= base_url("index.php/avaliacao/listagem/$item->codTurma");?>" style="text-decoration: none; color: #000;" title="Marcar Avaliação">
                                         <span class="glyphicon glyphicon-calendar spnMarcarProva" cod="<?= $item->codTurma;?>"></span>
+                                    </a>
+                                    <a href="<?= base_url("index.php/turma/edit/$item->codTurma");?>" style="text-decoration: none; color: #000;" title="Alterar Turma">
+                                        <span class="glyphicon glyphicon-pencil spnAlterarTurma" cod="<?= $item->codTurma;?>"></span>
                                     </a>
                                 </td>
                             </tr>
